@@ -1,0 +1,27 @@
+
+#gridContainer {
+	float: left;
+}
+
+#gridContainer .row {
+	display:block;
+}
+
+#gridContainer .row:odd {
+	background-color: #eee;
+}
+
+#gridContainer .col {
+	padding: 10px 15px;
+	text-align: center;
+	display: inline-block;
+	border: 1px solid #ccc;
+}
+
+#btn {
+	color: white;
+	float: left;
+	padding: 5px 15px;
+	margin: 0 15px;
+	background-color: #3333ee;
+}
