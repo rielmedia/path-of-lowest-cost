@@ -7,7 +7,6 @@ Download the source code then upload the files to your server.
 
 ``` 
 $ git clone https://github.com/rielmedia/path-of-lowest-cost.git 
-
 ```
 
 ### Usage
