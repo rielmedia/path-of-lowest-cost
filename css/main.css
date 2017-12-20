@@ -1,27 +1,90 @@
+body {
+	font-size: 14px;
+	font-family: "Arial";
+}
 
-#gridContainer {
+h1 {
+	width: 600px;
+	margin: 100px auto 10px;
+}
+
+.container {
+	width: 600px;
+	display: table;
+	margin: 0 auto 50px;
+	border:1px solid #ccc;
+	background-color: #efefef;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.container .left,
+.container .right {
 	float: left;
-}
-
-#gridContainer .row {
-	display:block;
-}
-
-#gridContainer .row:odd {
-	background-color: #eee;
-}
-
-#gridContainer .col {
-	padding: 10px 15px;
-	text-align: center;
+	padding: 15px;
+	box-sizing: border-box;
 	display: inline-block;
-	border: 1px solid #ccc;
 }
 
-#btn {
-	color: white;
-	float: left;
-	padding: 5px 15px;
-	margin: 0 15px;
-	background-color: #3333ee;
+.container .left {
+	width: auto;
 }
+
+	.container .left #gridContainer {
+	}
+
+	.container .left #gridContainer .row {
+		display:block;
+	}
+
+
+	.container .left #gridContainer .col {
+		padding: 14px 15px;
+		text-align: center;
+		display: inline-block;
+		border: 1px solid #ccc;
+		background-color: #ffffff;
+	}
+
+.container .right {
+	width: 50%;
+}
+
+	.container .right #estimate {
+		display: none;
+	}
+
+	.container .right #upload h3 {
+		margin: 15px 0 0;
+	}
+
+		.container .right #upload h3 span {
+			color: #999;
+			font-size: 14px;
+		}
+
+	.container .right #upload input {
+		margin: 15px 0;
+	}
+
+	.container .right #estimate .btn {
+		color: white;
+		padding: 15px;
+		border: none;
+		margin: 0 0 15px;
+		background-color: #333333;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 5px;
+		border-radius: 5px;
+	}
+
+		.container .right #estimate .btn:hover {
+			background-color: #FF3300;
+		}
+
+	.container .right #estimate #outputContent {
+		margin: 15px 0;
+	}
