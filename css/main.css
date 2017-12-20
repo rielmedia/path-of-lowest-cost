@@ -41,9 +41,12 @@ h1 {
 
 
 	.container .left #gridContainer .col {
-		padding: 14px 15px;
+		padding: 0;
+		width: 45px;
+		height: 45px;
 		text-align: center;
-		display: inline-block;
+		display: table-cell;
+		vertical-align: middle;
 		border: 1px solid #ccc;
 		background-color: #ffffff;
 	}

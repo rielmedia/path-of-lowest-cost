@@ -3,6 +3,7 @@
 
 	window.Grid = {
 
+		data: [],
 		grid: [],
 
 		// Reads the uploaded .txt file
@@ -11,7 +12,8 @@
 
 			var fr = new FileReader();
 			fr.onload = function(){
-				_this.buildGrid( this.result );
+				_this.formatInput( this.result );
+				_this.buildGrid();
 			}
 			fr.readAsText(e.files[0]);
 
@@ -21,19 +23,35 @@
 		},
 
 
-		// Builds the grid using uploaded input data
-		buildGrid: function( input ) {
+		// Formats the input from the uploaded file
+		formatInput: function(input) {
+			var _this = this;
+			var data = input.split('\n');
+			// data.map((item,i) => {
+			// 	_this.data.push(item.split(''));
+			// });
+			data.map((sequence,i) => {
+				var numbers = sequence.split('');
+				numbers.map((number,n) => {
+					if(number === '-'){
+						numbers[n] = '-'+numbers[n+1];
+						numbers.splice(n+1);
+					}else{
+						return number;
+					}
+				});
+				_this.data.push(numbers);
+			});
+			console.log(_this.data);
+		},
 
+
+		// Builds the grid using uploaded input data
+		buildGrid: function() {
 			var _this = this;
 
-			// Cast input data into a global array
-			var rows = input.split('\n');
-			for(var r=0; r<rows.length; r++){
-				_this.grid[r] = rows[r].split('');
-			}
-
 			var grid = '';
-			_this.grid.forEach((row,r) => {
+			_this.data.forEach((row,r) => {
 				grid += '<div class="row r'+(r)+'">';
 				row.forEach((cell,c) => {
 					grid += '<div class="col r'+(r)+'c'+(c)+'">'+cell+'</div>';
@@ -46,9 +64,9 @@
 
 		// Determines the path with the lowest cost
 		buildPaths: function() {
-
 			var _this = this;
-			var rows = this.grid;
+
+			var rows = _this.data;
 			var paths = [];
 			var results = '';
 
@@ -65,6 +83,7 @@
 					if(totalCost < 50){
 
 						// Adds the total cost of the path
+						console.log(rows[r]);
 						totalCost += Number(rows[r][c]);
 
 						// Stores the costs of each cell in the path
