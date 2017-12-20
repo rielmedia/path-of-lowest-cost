@@ -22,6 +22,7 @@
                 </div>
                 <div id="estimate">
                     <button class="btn" onclick="Grid.buildPaths();">Find Path</button>
+                    <button class="btn" onclick="location.reload();">Reset</button>
                     <div id="outputContent">
                         <span id="isComplete"></span><br />
                         <span id="totalCost"></span><br />
